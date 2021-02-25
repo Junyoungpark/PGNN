@@ -3,6 +3,9 @@
 An official 're'-implementation of 
 [Physics-induced graph neural network: An application to wind-farm power estimation](https://www.sciencedirect.com/science/article/pii/S0360544219315555) (PGNN).
 
+## Presentation file
+`wind_farm_presentation.pdf` summarizes the results of the journal paper.
+
 ## Notice
 We lost the asset for regenerating the journal version of PGNN and also the lost asset is
 considered to be obsolete due to the updates of dependencies. Here, we provide re-implementation 
