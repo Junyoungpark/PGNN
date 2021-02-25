@@ -57,7 +57,7 @@ class PGN(nn.Module):
 
 `edge_model`, `node_model` and `global_model` are any differentiable functions 
 that computes the updated edge, node, and global embedding respectively. In the examples,
-we used multi-layer perceptron as the `edge_model`,`node_model` and `global_model`.
+we used multi-layer perceptron as the `edge_model`, `node_model` and `global_model`.
 
 ## Physics-induced Attention
 ```python
