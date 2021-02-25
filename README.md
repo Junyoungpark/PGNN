@@ -26,7 +26,7 @@ version.
 ## Dependencies
 - pytorch (1.7.1)
 - dgl (0.5.x)
-- [GraphFloris](https://github.com/Junyoungpark/GraphFloris) - For data generation
+- [GraphFloris](https://github.com/Junyoungpark/GraphFloris) (0.20) - For data generation
 - [Adamp](https://github.com/clovaai/AdamP) - An optimizer
 - [python-box](https://github.com/cdgriffith/Box) - For handling experiment configurations
 - [Ray](https://github.com/ray-project/ray) - For parallel training data generation
