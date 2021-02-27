@@ -22,8 +22,8 @@ version.
 - Use Euclidean coordinates of wind turbines as additional node features.
 - Use [BatchNorm](https://arxiv.org/abs/1502.03167) in front of the `edge_model`,`node_model` 
   and `global_model` of the PGN layers.
-  We experimentally confirmed that using BatchNorm greatly improve the training speed 
-  and also slightly improve the asymptotic performance of PGNNs when augmenting Euclidean coordinates
+  We experimentally confirmed that using BatchNorm greatly improves the training speed 
+  and also slightly improves the asymptotic performance of PGNNs when augmenting Euclidean coordinates
   as inputs.
   
 ## Dependencies
