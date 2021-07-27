@@ -1,0 +1,36 @@
+model:
+  edge_hidden_dim: 50
+  edge_in_dim: 2
+  global_hidden_dim: 50
+  global_in_dim: 1
+  input_norm: true
+  n_pgn_layers: 3
+  node_hidden_dim: 50
+  node_in_dim: 3
+  pgn_mlp_params:
+    hidden_act: ReLU
+    num_neurons:
+    - 256
+    - 128
+    out_act: ReLU
+  pgn_params:
+    edge_aggregator: mean
+    global_edge_aggr: mean
+    global_node_aggr: mean
+  reg_mlp_params:
+    hidden_act: ReLU
+    num_neurons:
+    - 64
+    - 32
+    - 16
+    out_act: ReLU
+  residual: true
+model_params:
+  use_ws_only: true
+  use_xy: true
+train:
+  batch_size: 512
+  log_every: 100
+  num_procs: 6
+  reset_g_every: 64
+  train_steps: 20000
