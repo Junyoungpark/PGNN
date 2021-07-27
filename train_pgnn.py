@@ -5,11 +5,12 @@ import dgl
 import ray
 import torch
 import torch.nn as nn
+import wandb
 from adamp import AdamP
 from box import Box
 from dgl.data.utils import load_graphs
+from torch.optim import Adam
 
-import wandb
 from PGNN.nets.pgnn import PGNN
 from PGNN.utils.generate_data import prepare_data_mp
 
@@ -74,7 +75,12 @@ def main(device):
     print(m)
 
     crit = nn.MSELoss()
-    opt = AdamP(m.parameters(), lr=1e-3)
+
+    if 'cuda' in device:
+        opt = AdamP(m.parameters(), lr=1e-3)
+    else:  # for some reason, entire training code with adamp optimizer broken on cpu
+        opt = Adam(m.parameters(), lr=1e-3)
+
     scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(opt, T_0=50)
 
     # setup wandb logger
