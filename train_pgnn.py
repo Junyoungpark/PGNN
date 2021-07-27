@@ -78,7 +78,7 @@ def main(device):
 
     if 'cuda' in device:
         opt = AdamP(m.parameters(), lr=1e-3)
-    else:  # for some reason, entire training code with adamp optimizer broken on cpu
+    else:  # for some reason, the entire training code with adamp optimizer broken on cpu
         opt = Adam(m.parameters(), lr=1e-3)
 
     scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(opt, T_0=50)

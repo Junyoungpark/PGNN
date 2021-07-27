@@ -1,32 +1,33 @@
 # Physics-induced Graph Neural Network (PGNN)
 
-An official 're'-implementation of 
-[Physics-induced graph neural network: An application to wind-farm power estimation](https://www.sciencedirect.com/science/article/pii/S0360544219315555) (PGNN).
+An official 're'-implementation of
+[Physics-induced graph neural network: An application to wind-farm power estimation](https://www.sciencedirect.com/science/article/pii/S0360544219315555) (
+PGNN).
 
 ## Presentation file
+
 `wind_farm_presentation.pdf` summarizes the results of the journal paper.
 
 ## Notice
-We lost the asset for regenerating the journal version of PGNN and also the lost asset is
-considered to be obsolete due to the updates of dependencies. Here, we provide re-implementation 
-of PGNN based on `DGL`. 
-The original implementation were based on the older version of `pytorch` and 
-`floris`. However, since we submitted the journal paper, considerable changes has been
-made on the dependencies, especially `floris`.
 
-We provide slightly different hyperparameter choices of PGNN so that 
-the new implementation shows similar (or better) predictive performances as compared to the journal 
-version.
+We lost the asset for regenerating the journal version of PGNN and also the lost asset is considered to be obsolete due
+to the updates of dependencies. Here, we provide re-implementation of PGNN based on `DGL`. The original implementation
+were based on the older version of `pytorch` and
+`floris`. However, since we submitted the journal paper, considerable changes has been made on the dependencies,
+especially `floris`.
+
+We provide slightly different hyperparameter choices of PGNN so that the new implementation shows similar (or better)
+predictive performances as compared to the journal version.
 
 ## Difference of re-implementation from the journal version.
+
 - Use Euclidean coordinates of wind turbines as additional node features.
-- Use [BatchNorm](https://arxiv.org/abs/1502.03167) in front of the `edge_model`,`node_model` 
-  and `global_model` of the PGN layers.
-  We experimentally confirmed that using BatchNorm greatly improves the training speed 
-  and also slightly improves the asymptotic performance of PGNNs when augmenting Euclidean coordinates
-  as inputs.
-  
+- Use [BatchNorm](https://arxiv.org/abs/1502.03167) in front of the `edge_model`,`node_model`
+  and `global_model` of the PGN layers. We experimentally confirmed that using BatchNorm greatly improves the training
+  speed and also slightly improves the asymptotic performance of PGNNs when augmenting Euclidean coordinates as inputs.
+
 ## Dependencies
+
 - pytorch (1.7.1)
 - dgl (0.5.x)
 - [GraphFloris](https://github.com/Junyoungpark/GraphFloris) (0.20) - For data generation
@@ -55,40 +56,45 @@ class PGN(nn.Module):
                  global_edge_aggr: str = 'mean'):
 ```
 
-`edge_model`, `node_model` and `global_model` are any differentiable functions 
-that computes the updated edge, node, and global embedding respectively. In the examples,
-we used multi-layer perceptron as the `edge_model`, `node_model` and `global_model`.
+`edge_model`, `node_model` and `global_model` are any differentiable functions that computes the updated edge, node, and
+global embedding respectively. In the examples, we used multi-layer perceptron as the `edge_model`, `node_model`
+and `global_model`.
 
 ## Physics-induced Attention
+
 ```python
 class PhysicsInducedAttention(nn.Module):
 
-    def __init__(self, 
-                 input_dim=3, 
-                 use_approx=True, 
+    def __init__(self,
+                 input_dim=3,
+                 use_approx=True,
                  degree=5):
 ```
-`PhysicsInducedAttention` computes the attention score based on the steady-state wake
-deficit factor proposed by [J. Park et al](https://www.sciencedirect.com/science/article/pii/S0306261915004560).
 
+`PhysicsInducedAttention` computes the attention score based on the steady-state wake deficit factor proposed
+by [J. Park et al](https://www.sciencedirect.com/science/article/pii/S0306261915004560).
 
 ## Quick start
+
 ### Training new PGNN model from scratch
+
 Using `wandb` logger and `ray`-based parallel training data generation
+
 ```console
 python train_pgnn.py -device cuda:0 (or 'cpu')
 ```
 
 or simply
+
 ```console
 python train_pgnn_naive.py -device cuda:0 (or 'cpu')
 ```
 
 ### Test trained model
-We also provide pre-trained PGNN models. The hyperparameter and trained parameters of 
-PGNN are saved in `config.yaml` and `model.pt` respectively. The following code loads the 
-pre-trained PGNN from disk and evaluates the model.
+
+We also provide pre-trained PGNN models. The hyperparameter and trained parameters of PGNN are saved in `config.yaml`
+and `model.pt` respectively. The following code loads the pre-trained PGNN from disk and evaluates the model.
 
 ```console
-python test_model.py
+python eval_model.py
 ```

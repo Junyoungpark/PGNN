@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46cf3abb-060c-4067-880c-d81cd8678b01" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/PGNN.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PGNN.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-plugin.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/eval_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_pgnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_pgnn.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +93,7 @@
       <updated>1614228460836</updated>
       <workItem from="1614228464857" duration="20000" />
       <workItem from="1614228488333" duration="3061000" />
-      <workItem from="1627386661966" duration="1288000" />
+      <workItem from="1627386661966" duration="2312000" />
     </task>
     <servers />
   </component>
